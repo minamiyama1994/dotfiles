@@ -204,11 +204,6 @@ NeoBundleLazy "eagletmt/unite-haddock", {
 			\ }
 
 " for Coq
-NeoBundle 'jvoorhis/coq.vim'
-NeoBundleLazy 'vim-scripts/CoqIDE', {
-			\   'autoload' : {
-			\     'filetypes' : 'coq'
-			\   }
-			\ }
+NeoBundle "minamiyama1994/coqtop-vim"
 
 NeoBundleCheck
