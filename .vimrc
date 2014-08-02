@@ -65,15 +65,18 @@ let g:quickrun_config = {
 			\     "cmdopt" : "-Wall -Wextra -Werror -std=c++11",
 			\   },
 			\   "cpp/watchdogs_checker" : {
-			\       "type" : "watchdogs_checker/clang++",
+			\     "type" : "watchdogs_checker/clang++",
 			\   },
 			\
 			\   "watchdogs_checker/g++" : {
-			\       "cmdopt" : "-Wall -Wextra -std=c++11",
+			\     "cmdopt" : "-Wall -Wextra -std=c++11",
 			\   },
-			\
 			\   "watchdogs_checker/clang++" : {
-			\       "cmdopt" : "-Wall -Wextra -std=c++11",
+			\     "cmdopt" : "-Wall -Wextra -std=c++11",
+			\   },
+			\   "haskell" : {
+			\     "type" : "haskell/ghc",
+			\     "cmdopt" : "-Wall -Werror",
 			\   },
 			\ }
 let s:hook = {
@@ -98,7 +101,7 @@ function! s:cpp()
   syntax match boost_pp /BOOST_PP_[A-z0-9_]*/
   highlight link boost_pp cppStatement
   let g:marching_backend = "sync_clang_command"
-  let g:marching_clang_command_option="-std=c++11"
+  let g:marching_clang_command_option="-Wall -Wextra -Werror -std=c++11"
   let g:marching_enable_neocomplete = 1
   if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
@@ -147,6 +150,56 @@ NeoBundleLazy "osyo-manga/vim-watchdogs", {
 NeoBundleLazy "osyo-manga/shabadou.vim", {
 			\ 'autoload' : {
 			\     'filetype' : 'cpp'
+			\   }
+			\ }
+
+" for Haskell
+function! s:haskell()
+  setlocal tabstop=2
+  setlocal shiftwidth=2
+  setlocal expandtab
+  let g:marching_enable_neocomplete = 1
+  if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+  endif
+  let g:neocomplete#force_omni_input_patterns.haskell = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+endfunction
+augroup vimrc-haskell
+  autocmd!
+  autocmd FileType haskell call s:haskell()
+augroup END
+augroup ghcmodcheck
+  autocmd!
+  autocmd BufWritePost <buffer> GhcModCheckAsync
+augroup END
+NeoBundleLazy "kana/vim-filetype-haskell", {
+			\ 'autoload' : {
+			\     'filetype' : 'haskell'
+			\   }
+			\ }
+NeoBundleLazy "dag/vim2hs", {
+			\ 'autoload' : {
+			\     'filetype' : 'haskell'
+			\   }
+			\ }
+NeoBundleLazy "eagletmt/ghcmod-vim", {
+			\ 'autoload' : {
+			\     'filetype' : 'haskell'
+			\   }
+			\ }
+NeoBundleLazy "pbrisbin/vim-syntax-shakespeare", {
+			\ 'autoload' : {
+			\     'filetype' : 'haskell'
+			\   }
+			\ }
+NeoBundleLazy "eagletmt/neco-ghc", {
+			\ 'autoload' : {
+			\     'filetype' : 'haskell'
+			\   }
+			\ }
+NeoBundleLazy "eagletmt/unite-haddock", {
+			\ 'autoload' : {
+			\     'filetype' : 'haskell'
 			\   }
 			\ }
 
