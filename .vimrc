@@ -133,22 +133,22 @@ augroup cpp-namespace
   autocmd FileType cpp inoremap <buffer><expr>; <SID>expand_namespace()
 augroup END
 NeoBundleLazy "osyo-manga/vim-marching" , {
-			\ 'autoload' : {
+			\   'autoload' : {
 			\     'filetype' : 'cpp'
 			\   }
 			\ }
 NeoBundleLazy "jceb/vim-hier", {
-			\ 'autoload' : {
+			\   'autoload' : {
 			\     'filetype' : 'cpp'
 			\   }
 			\ }
 NeoBundleLazy "osyo-manga/vim-watchdogs", {
-			\ 'autoload' : {
+			\   'autoload' : {
 			\     'filetype' : 'cpp'
 			\   }
 			\ }
 NeoBundleLazy "osyo-manga/shabadou.vim", {
-			\ 'autoload' : {
+			\   'autoload' : {
 			\     'filetype' : 'cpp'
 			\   }
 			\ }
@@ -173,33 +173,41 @@ augroup ghcmodcheck
   autocmd BufWritePost <buffer> GhcModCheckAsync
 augroup END
 NeoBundleLazy "kana/vim-filetype-haskell", {
-			\ 'autoload' : {
+			\   'autoload' : {
 			\     'filetype' : 'haskell'
 			\   }
 			\ }
 NeoBundleLazy "dag/vim2hs", {
-			\ 'autoload' : {
+			\   'autoload' : {
 			\     'filetype' : 'haskell'
 			\   }
 			\ }
 NeoBundleLazy "eagletmt/ghcmod-vim", {
-			\ 'autoload' : {
+			\   'autoload' : {
 			\     'filetype' : 'haskell'
 			\   }
 			\ }
 NeoBundleLazy "pbrisbin/vim-syntax-shakespeare", {
-			\ 'autoload' : {
+			\   'autoload' : {
 			\     'filetype' : 'haskell'
 			\   }
 			\ }
 NeoBundleLazy "eagletmt/neco-ghc", {
-			\ 'autoload' : {
+			\   'autoload' : {
 			\     'filetype' : 'haskell'
 			\   }
 			\ }
 NeoBundleLazy "eagletmt/unite-haddock", {
-			\ 'autoload' : {
+			\   'autoload' : {
 			\     'filetype' : 'haskell'
+			\   }
+			\ }
+
+" for Coq
+NeoBundle 'jvoorhis/coq.vim'
+NeoBundleLazy 'vim-scripts/CoqIDE', {
+			\   'autoload' : {
+			\     'filetypes' : 'coq'
 			\   }
 			\ }
 
