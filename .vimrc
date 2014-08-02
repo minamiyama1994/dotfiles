@@ -69,10 +69,10 @@ let g:quickrun_config = {
 			\   },
 			\
 			\   "watchdogs_checker/g++" : {
-			\     "cmdopt" : "-Wall -Wextra -std=c++11",
+			\     "cmdopt" : "-Wall -Wextra -Werror -std=c++11",
 			\   },
 			\   "watchdogs_checker/clang++" : {
-			\     "cmdopt" : "-Wall -Wextra -std=c++11",
+			\     "cmdopt" : "-Wall -Wextra -Werror -std=c++11",
 			\   },
 			\   "haskell" : {
 			\     "type" : "haskell/ghc",
