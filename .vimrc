@@ -48,6 +48,7 @@ else
 endif
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#skip_auto_completion_time = ""
+let g:neocomplcache_enable_at_startup = 1
 NeoBundle "thinca/vim-quickrun"
 let g:quickrun_config = {
 			\   "_" : {
