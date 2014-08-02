@@ -109,11 +109,12 @@ function! s:cpp()
   let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 endfunction
 function! s:expand_namespace()
-  if s =~# '\<b;$'
+  let l:s = getline('.')[0:col('.')-1]
+  if l:s =~# '\<b;$'
     return "\<BS>oost::"
-  elseif s =~# '\<s;$'
+  elseif l:s =~# '\<s;$'
     return "\<BS>td::"
-  elseif s =~# '\<d;$'
+  elseif l:s =~# '\<d;$'
     return "\<BS>etail::" 
   else
     return ";"
