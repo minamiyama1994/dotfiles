@@ -78,6 +78,9 @@ let g:quickrun_config = {
 			\     "type" : "haskell/ghc",
 			\     "cmdopt" : "-Wall -Werror",
 			\   },
+			\   "ruby" : {
+			\     "type" : "ruby/ruby",
+			\   },
 			\ }
 let s:hook = {
 			\   "name" : "clear_quickfix",
@@ -206,5 +209,23 @@ NeoBundleLazy "eagletmt/unite-haddock", {
 
 " for Coq
 NeoBundle "minamiyama1994/coqtop-vim"
+
+" for Ruby
+function! s:ruby()
+  setlocal tabstop=2
+  setlocal shiftwidth=2
+  setlocal expandtab
+  let g:marching_enable_neocomplete = 1
+  if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+  endif
+  let g:neocomplete#force_omni_input_patterns.ruby = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+endfunction
+augroup vimrc-ruby
+  autocmd!
+  autocmd FileType haml call s:ruby()
+  autocmd FileType ruby call s:ruby()
+  autocmd FileType eruby call s:ruby()
+augroup END
 
 NeoBundleCheck
