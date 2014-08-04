@@ -228,4 +228,16 @@ augroup vimrc-ruby
   autocmd FileType eruby call s:ruby()
 augroup END
 
+" for Twitter
+NeoBundle "basyura/TweetVim", {
+			\   "depends" : [
+			\     'mattn/webapi-vim' ,
+			\     'basyura/twibill.vim' ,
+			\     'tyru/open-browser.vim' ,
+			\     'h1mesuke/unite-outline' ,
+			\     'basyura/bitly.vim' ,
+			\     'Shougo/unite.vim' ,
+			\   ]
+			\ }
+
 NeoBundleCheck
