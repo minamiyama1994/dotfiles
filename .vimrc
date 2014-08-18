@@ -174,10 +174,6 @@ augroup vimrc-haskell
   autocmd!
   autocmd FileType haskell call s:haskell()
 augroup END
-augroup ghcmodcheck
-  autocmd!
-  autocmd BufWritePost <buffer> GhcModCheckAsync
-augroup END
 NeoBundleLazy "kana/vim-filetype-haskell", {
 			\   'autoload' : {
 			\     'filetype' : 'haskell'
@@ -243,8 +239,7 @@ NeoBundle "basyura/TweetVim", {
 			\ }
 
 " for Markdown
-au BufRead,BufNewFile *.md set filetype=markdown
-NeoBundle "plasticboy/vim-markdown"
+NeoBundle "rcmdnk/vim-markdown"
 NeoBundle "kannokanno/previm"
 NeoBundle "tyru/open-browser.vim"
 
