@@ -6,6 +6,8 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+set backspace=indent,eol,start
+
 " add plugins
 
 filetype plugin on
@@ -239,5 +241,11 @@ NeoBundle "basyura/TweetVim", {
 			\     'Shougo/unite.vim' ,
 			\   ]
 			\ }
+
+" for Markdown
+au BufRead,BufNewFile *.md set filetype=markdown
+NeoBundle "plasticboy/vim-markdown"
+NeoBundle "kannokanno/previm"
+NeoBundle "tyru/open-browser.vim"
 
 NeoBundleCheck
