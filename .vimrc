@@ -248,4 +248,28 @@ NeoBundle "plasticboy/vim-markdown"
 NeoBundle "kannokanno/previm"
 NeoBundle "tyru/open-browser.vim"
 
+" for HTML CSS
+function! s:scss()
+  setlocal tabstop=2
+  setlocal shiftwidth=2
+  setlocal expandtab
+  let g:marching_enable_neocomplete = 1
+  if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+  endif
+  let g:neocomplete#force_omni_input_patterns.scss = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+endfunction
+augroup vimrc-scss
+  autocmd!
+  autocmd FileType scss call s:scss()
+augroup END
+NeoBundle "mattn/emmet-vim"
+NeoBundle "tpope/vim-surround"
+NeoBundle "othree/html5.vim"
+NeoBundle "hail2u/vim-css3-syntax"
+NeoBundle "css_color.vim"
+
+" for VimShell
+NeoBundle "Shougo/vimshell.vim"
+
 NeoBundleCheck
