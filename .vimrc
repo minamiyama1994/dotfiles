@@ -267,4 +267,8 @@ NeoBundle "css_color.vim"
 " for VimShell
 NeoBundle "Shougo/vimshell.vim"
 
+" for Web
+
+NeoBundle "yuratomo/w3m.vim"
+
 NeoBundleCheck
